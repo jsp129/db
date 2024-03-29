@@ -1,0 +1,169 @@
+<head>
+<title>참살이반찬</title>
+<link rel="shortcut icon" type="image?x-icon" href="/db/shopping/logo.png">
+</head>
+<style type="text/css">
+	#t1 { font-size:20px; width:200px; text-align:center;
+			border:thin solid background-color:green; cursor:hand; 
+			border-top-left-radius:10px;
+			border-bottom-right-radius:10px;}
+	a:link{color:black; text-decoration:none;}
+	a:visited{color:black; text-decoration:none;}
+	a:hover{color:red; text-decoration:none;}
+	
+	.btn01, .btn02{padding: 2px 4px 2px 4px; text-align: center; font-weight: 600; line-height: 1.4em; box-shadow: 1px 1px 2px #333; border-radius: 15px;}
+	.btn01{background-color: #008DFF; color: #333;}
+	.btn02{background-color: #FF3E00; color: #fff;}
+	.example01{padding: 5px; text-align: center; border: 1px solid #008DFF;}
+	
+	.more {display:block;
+	  width: 150px;
+	  height: 35px;
+	  overflow:visible;
+	  background-image:url('/db/shopping/all.png');
+	}
+	.blind {
+	  position: absolute;
+	  overflow:visible;
+	  clip: rect(0 0 0 0);
+	  margin: 1px;
+	  width: 1px;
+	  height: 2px;
+	}
+	.more:hover, .close:hover {
+	  cursor:pointer;
+	  color:red;
+	}
+	.close {
+	  display:block;
+	  background-image:url('/db/shopping/all.png');
+	  width: 150px;
+	  height: 35px;
+	}
+	.board {
+	  font-family:'tahoma';
+	  font-size:12px;
+	  line-height:20px;
+	  position:absolute;
+	  top:150px;
+	  width:600px;
+	  height:372px;
+	  background:#FBFCEA;
+	  visibility:hidden;
+	  z-index:1;
+	}
+	.list {
+	  float:left;
+	}
+	.list li {
+	  list-style:none;
+	  margin-top:10px;
+	  margin-right:50px;
+	  border-left:2px solid #999;
+	}
+	.list li:hover {
+	  color:red;
+	  cursor:pointer;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+	  $('.more').click(function(){
+		if($('.more').hasClass('more')){
+		   $('.more').addClass('close').removeClass('more');
+		   $('.board').css('visibility', 'visible');
+		}else if($('.close').hasClass('close')){
+		   $('.close').addClass('more').removeClass('close');  
+		   $('.board').css('visibility', 'hidden');
+		}
+	  });
+	});
+</script>
+
+<?if(!$UserID){?>
+<table  width=100% height=35 align=center border=0 cellspacing=0>
+	<tr align=center style=background-color:#cce6c3 >
+		<td width =1100></td>
+		<td width =60><a href=left.html><font size="2" color='black'>로그인</font></a></td>
+		<td width =60><a href=join.html><font size="2" color='black'>회원가입</font></a></td>
+		<td width =60><a href=left.html><font size="2" color='black'>주문조회</font></a></td>
+		<td width =60><a href=left.html><font size="2" color='black'>장바구니</font></a></td>		
+		<td width=150><form method=post action=search.php align=center><input type=text size=10 name=key><?echo("&nbsp;&nbsp;");?><input type=image src='/db/shopping/logo/search.png' name=submit value='submit' width=15></form></td>
+	</tr></font>
+</table>
+<?}else{
+$con = mysql_connect("localhost","root","apmsetup");
+mysql_select_db("class",$con);
+$result = mysql_query("select uname from member where uid='$UserID'", $con);
+$name = mysql_result($result, 0, "uname");
+?>
+<table  width=100% height=35 align=center border=0 cellspacing=0>
+	<tr align=center style=background-color:#cce6c3 >
+		<td width =1100></td>
+		<td width =150><font size="2" color='yellow'><?echo("$name 님 반갑습니다.");?></font></a></td>
+		<td width =80><a href=checkpasswd.php><font size="2" color='white'>마이페이지</font></a></td>
+		<td width =60><a href=buylist.php><font size="2" color='white'>주문조회</font></a></td>
+		<td width =60><a href=showbag.php><font size="2" color='white'>장바구니</font></a></td>
+		<td width=60><a href=logout.php><font size="2" color='white'>로그아웃</font></a></td>
+		<td width=200><form method=post action=search.php align=center><input type=text size=10 name=key><?echo("&nbsp;&nbsp;");?><input type=image src='/db/shopping/logo/search.png' name=submit value='submit' width=20></form></td>
+	</tr></font>
+</table>
+<?}?>
+<table  width=100% align=center border=0 cellspacing=0>
+	<tr height=10></tr>
+	<tr height=60 >
+		<td width=300></td>
+		<td rowspan=2 width=10><a href=index.html><img src=/db/shopping/logo.png></a></td>
+		<td ></td>
+		</tr>
+	<tr height=50 align=center>
+		<td></td>
+		<td width=100></td>
+		<td width=200><span class="more">
+			<span class="blind">더보기 V</span>
+			</span>
+			<div class="board">
+			  <ul class="list">
+				<li><a href=p-show.php?code=14655201370100>잡채</a></li>
+				<li><a href=p-show.php?code=14655164223500>즉석두부조림</a></li>
+				<li><a href=p-show.php?code=14654650478500>오징어볶음</a></li>
+				<li><a href=p-show.php?code=14655242829900>오이도라지무침</a></li>
+				<li><a href=p-show.php?code=14654348253100>시금치나물</a></li>
+				<li><a href=p-show.php?code=14655190280700>코다리조림</a></li>
+			  </ul>
+			  <ul class="list">
+				<li><a href=p-show.php?code=14655160010200>메추리알조림</a></li>
+				<li><a href=p-show.php?code=14655281535500>매콤고추장진미채</a></li>
+				<li><a href=p-show.php?code=14654611894400>감자햄채볶음</a></li>
+				<li><a href=p-show.php?code=14654399753500>매콤콩나물무침</a></li>
+				<li><a href=p-show.php?code=14655158454600>감자조림</a></li>
+				<li><a href=p-show.php?code=14655187723800>소고기장조림</a></li>
+			  </ul>
+			  <ul class="list">
+				<li><a href=p-show.php?code=14637091469100>소고기뭇국 700g</a></li>
+				<li><a href=p-show.php?code=14637091074400>소고기미역국 700g</a></li>
+				<li><a href=p-show.php?code=14637090335600>육개장 700g</a></li>
+				<li><a href=p-show.php?code=14637088485600>바지락순두부찌개 700g</a></li>
+				<li><a href=p-show.php?code=14637088767200>오징어뭇국 700g</a></li>
+				<li><a href=p-show.php?code=14637089987600>콩비지찌개 700g</a></li>
+			  </ul>
+			  <ul class="list">
+				<li><a href=p-show.php?code=14637090675000>아욱국 700g</a></li>
+				<li><a href=p-show.php?code=14637090846500>청국장 700g</a></li>
+				<li><a href=p-show.php?code=14637089773000>돼지고기김치찌개 700g</a></li>
+				<li><a href=p-show.php?code=15100667807200>부대찌개(반조리)</a></li>
+				<li><a href=p-show.php?code=14637089030600>콩나물김칫국 700g</a></li>
+			  </ul></div>
+		</td>
+		<td width=150><a href=gongji.php><font size='3'><b>공지사항</b></font></a></td>
+		<td width=150><a href=munui.php><font size='3'><b>상품문의</font></b></a></td>
+		<td width=150><a href=hugi.php><font size='3'><b>상품후기</b></font></a></td>
+	<?if($UserID=="admin"){?>
+		<td width=150><a href=admin.php><font size='3'><b>관리자메뉴</b></font></a></td>
+		<?}?>
+		<td></td>
+	</tr>
+	<tr height=10></tr>
+	
+</table>
+<hr width=100% color=black >

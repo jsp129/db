@@ -1,0 +1,33 @@
+
+<? include ("top.html"); ?>
+<?
+$con = mysql_connect("localhost", "root", "apmsetup");
+mysql_select_db("class", $con);
+$result = mysql_query("select * from member where uid='$uid'", $con);
+$name = mysql_result($result,0,"uname");
+?>
+<br><br><br>
+
+<table align=center>
+	<tr>
+		<td colspan=5 align=center>
+			<img src="/db/shopping/join4.png" width=130 height=130 >
+		</td>
+	</tr>
+	<tr>
+		<td align=center colspan=5>
+			<font size=2 color=green><b><?echo("$name");?></b></font><font size=2> 님의 회원가입을 축하합니다.<br>알차고 더 맛있는 음식으로 찾아뵙겠습니다.</font><br>
+		</td>
+	</tr>
+	<tr>
+		<td align=center>
+			<a href="index.html"><img src="/db/shopping/home.png" width=50 height=50></a>
+		</td>
+		<td></td><td></td><td></td>
+		<td align=center>
+			<a href="left.html"><img src="/db/shopping/login.png" width=50 height=50></a>
+		</td>
+	</tr>
+</table>
+<br><br><br>
+<? include ("bottom.html"); ?>
