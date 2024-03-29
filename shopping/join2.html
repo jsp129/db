@@ -1,0 +1,78 @@
+
+<? include ("top.html"); ?>
+
+<table bgcolor=black border=0 width=100%>
+
+<script   language='Javascript'>
+function   id_check() {
+var id = document.comma.uid.value;
+if (id.length < 5) {
+	window.alert('ID는 5글자 이상 입력해주세요');
+} else {
+	window.open('id_check.php?id=' + id, 'IDCHECK', 'width=450, height=180, scrollbars=yes');
+}
+}
+
+function   go_zip() {
+window.open('zipcode.php','ZIP','width=470, height=180, scrollbars=yes');
+}
+</script>
+
+<form action=register.php method=post name=comma>
+
+
+
+<table border=0 width=100% height=500  bgcolor=white cellspacing=10px>
+<tr><td>
+
+     <table width=670 border=0 align=center style='border-collapse:collapse' cellpadding=10px>
+ <tr>
+    <td width=5% align=right><font color=gray>*</td>
+	<td width=15% height=30 style='border-right:2px solid lightgray'><font size=2><font color=gray>회원 ID</td>
+	<td width=80%><input type=text size=10 name=uid><font size=2>&nbsp;<font color=gray>[<a href='javascript:id_check()'><font color=gray>ID중복검사</a>]</font></td>
+ </tr>
+ <tr>
+	<td   align=right><font color=gray>*</td>
+	<td height=30 style='border-right:2px solid lightgray'><font size=2><font color=gray>비밀번호</font></td>
+	<td><input type=password   maxlength=15 style="height:20;" size=20 name=upass1></td>
+ </tr>
+ <tr>
+	<td align=right><font color=gray>*</td>
+	<td height=30 style='border-right:2px solid lightgray'><font size=2><font color=gray>비밀번호확인</font></td>
+	<td><input type=password   maxlength=15 style="height:20;" size=20 name=upass2></td>
+ </tr>
+ <tr>
+	<td align=right><font color=gray>*</td>
+	<td height=30 style='border-right:2px solid lightgray'><font size=2><font color=gray>이 &nbsp;&nbsp; 름</font></td>
+	<td><input type=text size=10 name=uname></td>
+ </tr>
+ <tr>
+	<td align=right><font color=gray>*</td>
+	<td height=30 style='border-right:2px solid lightgray'><font size=2><font color=gray>휴대전화</font></td>
+	<td><input type=text size=20 name=mphone></td>
+ </tr>
+ <tr>
+	<td align=right><font color=gray>*</td>
+	<td height=30 style='border-right:2px solid lightgray'><font size=2><font color=gray>이메일</td>
+	<td><input type=text size=30 name=email></td>
+ </tr>
+ <tr>
+	<td align=right><font color=gray>*</td>
+	<td height=30 style='border-right:2px solid lightgray'><font size=2><font color=gray>집주소</td>
+	<td><input type=text size=7   name=zip readonly=readonly><font size=2>&nbsp;<font color=gray>[<a   href='javascript:go_zip()'><font color=gray>우편번호검색</a>]</font><br><input type=text size=50 name=addr1 readonly=readonly><br><input   type=text size=35 name=addr2></td>
+</tr>
+</table>
+
+  </td></tr>
+</table>
+  
+<table width=100% border=0 cellpadding=0 cellspacing=5 bgcolor=white>
+<tr><td height=40 align=center  ><input type=submit value="회원가입"style="width:120px; height:50px; border-radius:10px; cursor:pointer; 
+			border:lightgrey thin; color:gray; font-size:20px; background:#cce6c3; font-weight:bold;"></td></tr>
+</table>
+
+</form>
+
+</td></tr>
+</table>
+<? include ("bottom.html");   ?>
